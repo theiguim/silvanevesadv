@@ -82,8 +82,6 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    /* background-color: orange; */
 }
 
 .main-logo img {
@@ -117,13 +115,6 @@ a:hover {
     transition: transform 0.3s ease;
 }
 
-/* .wrap-black{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 0%, transparent 95%, #ffffff 100%);
-} */
 
 .diference {
     margin: auto;
@@ -241,10 +232,12 @@ span {
 
 .card-element:hover::before {
     background-color: #0000004b;
+    cursor: pointer;
 }
 
 .card-element:hover .card-element-content {
     transform: scale(1.04);
+     cursor: pointer;
 }
 
 .card-element-content {
