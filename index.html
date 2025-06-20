@@ -9,14 +9,10 @@
 </head>
 
 <body>
-
-
-
     <section class="main">
 
-        <div class="wrap-black"></div>
         <header>
-            <img class="header-logo" src="images/claro.png" alt="">
+            <a href="#"><img class="header-logo" src="images/claro.png" alt=""></a>
 
             <button class="hamburger" aria-label="Abrir menu">
                 &#9776;
@@ -24,11 +20,21 @@
 
             <nav class="nav-menu">
                 <ul>
-                    <li>Início</li>
-                    <li>Serviços</li>
-                    <li>Sobre</li>
-                    <li>Equipe</li>
-                    <li>Contato</li>
+                    <a href="#">
+                        <li>Início</li>
+                    </a>
+                    <a href="#atuacao">
+                        <li>Serviços</li>
+                    </a>
+                    <a href="#about">
+                        <li>Sobre</li>
+                    </a>
+                    <a href="#team">
+                        <li>Equipe</li>
+                    </a>
+                    <a href="#contact">
+                        <li>Contato</li>
+                    </a>
                 </ul>
             </nav>
         </header>
@@ -64,7 +70,7 @@
             </div>
         </section>
 
-        <section class="atuacao">
+        <section id="atuacao" class="atuacao">
             <span>Soluções</span>
             <h1>Veja quais são as nossas especialidades</h1>
             <div class="card-elements">
@@ -108,7 +114,7 @@
         </section>
 
 
-        <section class="about">
+        <section id="about" class="about">
             <div class="about-content">
                 <div class="about-txt">
                     <span>Quem somos</span>
@@ -155,7 +161,7 @@
 
 
 
-        <section class="team">
+        <section id="team" class="team">
             <h1>Conheça a nossa equipe</h1>
             <div class="team-elements">
                 <div class="team-element">
@@ -203,16 +209,26 @@
             </div>
         </section>
 
-        <section class="contact">
-            <img src="images/new-logo.png" alt="">
+        <section id="contact" class="contact">
+            <a href="#"><img src="images/new-logo.png" alt=""></a>
 
             <div>
                 <h2>Institucional</h2>
-                <p>Inicio</p>
-                <p>Serviços</p>
-                <p>Sobre</p>
-                <p>Equipe</p>
-                <p>Contato</p>
+                <a href="#">
+                    <p>Inicio</p>
+                </a>
+                <a href="#atuacao">
+                    <p>Serviços</p>
+                </a>
+                <a href="#about">
+                    <p>Sobre</p>
+                </a>
+                <a href="#team">
+                    <p>Equipe</p>
+                </a>
+                <a href="#contact">
+                    <p>Contato</p>
+                </a>
             </div>
 
             <div>
@@ -227,43 +243,33 @@
 
             <div>
                 <h2>Contato</h2>
-                <p>+55 32 999952-6526</p>
-                <p>loremip@gmail.com</p>
+                <a href="">
+                    <p>+55 32 999952-6526</p>
+                </a>
+                <a href="">
+                    <p>loremip@gmail.com</p>
+                </a>
             </div>
 
             <div>
                 <h2>Localização</h2>
                 <H1>A</H1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, voluptatum?</p>
+                <a href="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, voluptatum?</p>
+                </a>
             </div>
 
         </section>
     </div>
     <footer></footer>
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-
-            window.addEventListener('scroll', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
 
-<!-- responsividade main e header -->
-
-
 <!-- EFX -->
-<!-- hover nos links -->
 <!-- animação estatua -->
-<!-- fazer blur no hover dos serviços, mudar cor do button para solida, e talvez dar um scale pequeno -->
-<!-- hover no background do perfil(?) -->
-<!-- hover nos links footer -->
-
-<!-- funcionamento dos links na nav header e nav footer -->
+<!-- href links contact e localização -->
+<!-- desenvolver footer -->
