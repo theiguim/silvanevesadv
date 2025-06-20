@@ -587,12 +587,15 @@ button {
     }
 
     .nav-menu {
-        display: none;
+        opacity: 0;
         position: absolute;
         top: 70px;
         right: 0;
         width: 100%;
         background-color: #eeece8;
+        padding-bottom: 20px;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     .nav-menu ul {
@@ -604,6 +607,8 @@ button {
 
     .nav-menu.active {
         display: block;
+        transform: translateY(0);
+        opacity: 1;
     }
 
     .main {
@@ -620,6 +625,7 @@ button {
 
     .main-logo h1 {
         font-size: 24px;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.178);
     }
 
     .main-logo button {
@@ -698,4 +704,14 @@ button {
         padding: 100px 20px;
     }
 
+}
+
+@media (max-width:375px){
+    .main{
+        height: 110vh;
+    }
+
+       .statue img {
+        width: 350px;
+    }
 }

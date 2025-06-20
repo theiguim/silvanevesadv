@@ -246,6 +246,10 @@
 
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+
+            window.addEventListener('scroll', () => {
+                navMenu.classList.remove('active');
+            });
         });
     </script>
 </body>
