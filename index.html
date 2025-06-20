@@ -17,7 +17,12 @@
         <div class="wrap-black"></div>
         <header>
             <img class="header-logo" src="images/claro.png" alt="">
-            <nav>
+
+            <button class="hamburger" aria-label="Abrir menu">
+                &#9776;
+            </button>
+
+            <nav class="nav-menu">
                 <ul>
                     <li>Início</li>
                     <li>Serviços</li>
@@ -57,8 +62,6 @@
                 <h2>+250</h2>
                 <p>clientes atendidos com resultados positivos</p>
             </div>
-
-            <!-- <div>Transparência</div> -->
         </section>
 
         <section class="atuacao">
@@ -237,12 +240,19 @@
         </section>
     </div>
     <footer></footer>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
 
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
 
-<!-- responsividade total -->
+<!-- responsividade main e header -->
 
 
 <!-- EFX -->
@@ -253,5 +263,3 @@
 <!-- hover nos links footer -->
 
 <!-- funcionamento dos links na nav header e nav footer -->
-
-

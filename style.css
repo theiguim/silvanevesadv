@@ -39,7 +39,7 @@ header {
     font-weight: 500;
     font-size: 18px;
 
-
+    z-index: 101;
 
 }
 
@@ -47,10 +47,14 @@ header img {
     width: 70px;
 }
 
-header ul {
+.nav-menu ul {
     display: flex;
     list-style: none;
     gap: 10px;
+}
+
+.hamburger {
+    display: none;
 }
 
 .main {
@@ -172,6 +176,7 @@ span {
 
 .atuacao {
     padding: 10vh 0;
+    max-width: 100vw;
     text-align: center;
 }
 
@@ -183,7 +188,7 @@ span {
 }
 
 .card-elements {
-    padding: 10vh;
+    padding: 10vh 0;
     width: 70vw;
     margin: auto;
     display: grid;
@@ -316,6 +321,7 @@ button {
 
 .team>h1 {
     font-size: 35px;
+    text-align: center;
 }
 
 .team-elements {
@@ -331,6 +337,8 @@ button {
     align-items: center;
     justify-content: center;
     gap: 3px;
+
+    text-align: center;
 }
 
 .team-element>img {
@@ -388,6 +396,23 @@ button {
 
 
 @media (max-width: 1200px) {
+
+    .main-logo {
+        padding-top: 70px;
+        max-width: 50vw;
+        margin-right: auto;
+    }
+
+    .statue {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .statue img {
+        width: 600px;
+    }
+
     .contact {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -402,6 +427,14 @@ button {
 }
 
 @media (max-width: 970px) {
+
+    .main-logo {
+        padding: 70px 0 0 70px;
+    }
+
+    .statue img {
+        width: 500px;
+    }
 
     .diference {
         width: 90vw;
@@ -426,12 +459,15 @@ button {
         grid-template: 1fr 1fr 1fr / 1fr 1fr;
     }
 
-    .about-content {
-    
-    padding: 80px 50px;
-}
+    .card-element {
+        height: 300px;
+    }
 
-    .about-txt{
+    .about-content {
+        padding: 80px 50px;
+    }
+
+    .about-txt {
         text-align: center;
     }
 
@@ -447,12 +483,219 @@ button {
     }
 }
 
-@media (max-width: 815px){
-    
-     .contact {
-        grid-template-columns: repeat(2, 2fr);
-        /* !!centralizar os itens aqui! */
+@media (max-width: 815px) {
+
+    .main {
+        height: 110vh;
     }
 
-    /* team */
+    .main-logo {
+        padding: 0 0 10vh 0;
+        max-width: 100vw;
+        z-index: 100;
+    }
+
+    .main-logo h1 {
+        text-shadow: 2px 2px 3px black;
+    }
+
+    .statue img {
+        width: 450px;
+        opacity: 0.6;
+    }
+
+
+    .contact {
+        grid-template-columns: repeat(2, 2fr);
+    }
+
+    .card-elements {
+        width: 85vw;
+    }
+
+    .card-element {
+        height: 380px;
+    }
+
+    .team {
+        padding: 10vh 0;
+        width: 80vw;
+        margin: auto;
+    }
+
+    .team-element>img {
+        width: 100px;
+        height: 100px;
+    }
+
+}
+
+@media (max-width: 710px) {
+
+    .main-logo h1 {
+        font-size: 27px;
+    }
+
+    .statue img {
+        width: 420px;
+    }
+
+    .diference {
+        align-items: start;
+    }
+
+    .dif-element>p {
+        font-size: 15px;
+    }
+
+    .about-content {
+        padding: 80px 50px;
+    }
+
+    .about-txt>h1 {
+        margin: 20px 0;
+    }
+
+
+    .values {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .value-element {
+        text-align: left;
+        width: auto;
+    }
+
+}
+
+@media (max-width: 560px) {
+
+    header {
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+
+    .hamburger {
+        display: block;
+        border: none;
+        font-size: 30px;
+        color: #b9955a;
+        cursor: pointer;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background-color: #eeece8;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 1rem 0;
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .main {
+        height: 100vh;
+    }
+
+    .main-logo {
+        padding: 0 0 20vh 0;
+    }
+
+    .main-logo img {
+        width: 280px;
+    }
+
+    .main-logo h1 {
+        font-size: 24px;
+    }
+
+    .main-logo button {
+        font-size: 14px;
+    }
+
+    .statue img {
+        width: 380px;
+        opacity: 0.6;
+    }
+
+    .diference {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dif-element:nth-child(1) {
+        grid-column: 1 / -1;
+    }
+
+    .dif-element:nth-child(2) {
+        grid-column: 1;
+    }
+
+    .dif-element:nth-child(3) {
+        grid-column: 2;
+    }
+
+    .card-elements {
+        padding: 0;
+
+        grid-template: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr;
+    }
+
+    .about-content {
+        padding: 80px 20px;
+    }
+
+    .about-txt {
+        text-align: justify;
+    }
+
+    .team {
+        width: 80vw;
+        margin: auto;
+        gap: 50px;
+    }
+
+    .team-elements {
+        gap: 50px;
+    }
+
+    .team-element {
+        padding: 0;
+    }
+
+    .team-element>img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .team-element>h2 {
+        font-size: 20px;
+    }
+
+    .team-element>span {
+        font-size: 13px;
+    }
+
+    .team-element>p {
+        font-size: 13px;
+    }
+
+    .contact {
+        grid-template-columns: repeat(1, 4fr);
+        padding: 100px 20px;
+    }
+
 }
