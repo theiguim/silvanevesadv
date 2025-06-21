@@ -112,7 +112,6 @@ a:hover {
 
 .statue img {
     width: 35vw;
-    transition: transform 0.3s ease;
 }
 
 
@@ -464,7 +463,6 @@ button:hover {
 
     .contact img {
         grid-column: 1 / -1;
-        /* Logo ocupa a linha inteira */
         justify-self: center;
         margin-bottom: 40px;
     }
