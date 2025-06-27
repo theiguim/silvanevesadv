@@ -18,6 +18,20 @@ body {
     background-color: #eeece8;
 }
 
+.wpp-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    z-index: 100;
+    transition: .3s ease;
+}
+
+.wpp-fixed:hover {
+    transform: scale(1.09);
+    cursor: pointer;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -236,7 +250,7 @@ span {
 
 .card-element:hover .card-element-content {
     transform: scale(1.04);
-     cursor: pointer;
+    cursor: pointer;
 }
 
 .card-element-content {
@@ -295,7 +309,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    gap: 80px;
+    gap: 60px;
 }
 
 .about-txt {
@@ -316,12 +330,15 @@ button:hover {
 .values {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    gap: 30px;
     justify-content: space-between;
 }
 
 .value-element {
     text-align: center;
-    width: 200px;
+    text-align: left;
+    width: auto;
 }
 
 .value-element>h2 {
@@ -433,8 +450,47 @@ button:hover {
     margin-top: 8px;
 }
 
-.contact img {
+.contact>div button {
+    margin-top: 10px;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+}
+
+.social-ico {
+    width: 23px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.social-ico:hover {
+    transform: scale(1.08);
+}
+
+.contact>img {
     height: 120px;
+}
+
+
+footer {
+    background-color: black;
+
+    font-family: sans-serif;
+    font-size: 12px;
+    padding: 8px;
+    text-align: center;
+}
+
+footer>a {
+    color: rgb(179, 179, 179);
+    text-decoration: none;
 }
 
 
@@ -519,6 +575,10 @@ button:hover {
         display: none;
     }
 
+    .value-element {
+        text-align: center;
+    }
+
     .team-elements {
 
         grid-template: 1fr 1fr 1fr / 1fr 1fr;
@@ -599,15 +659,8 @@ button:hover {
         margin: 20px 0;
     }
 
-
-    .values {
-        flex-direction: column;
-        gap: 30px;
-    }
-
     .value-element {
         text-align: left;
-        width: auto;
     }
 
 }
