@@ -293,7 +293,6 @@ button:hover {
 
 .about {
     width: 100%;
-    background-color: #271b12;
     background-color: #0f1235;
     height: auto;
     display: flex;
@@ -464,10 +463,13 @@ button:hover {
 }
 
 .social-ico {
-    width: 23px;
+    width: 18px;
     margin-top: 15px;
     cursor: pointer;
     transition: .3s ease;
+    border-radius: 50%;
+    border: 1px solid #b9945a62;
+    padding: 6px;
 }
 
 .social-ico:hover {
