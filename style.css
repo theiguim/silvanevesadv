@@ -382,7 +382,7 @@ button:hover {
 .team-elements {
     margin: auto;
     display: grid;
-    grid-template: 1fr 1fr / 1fr 1fr 1fr;
+    grid-template: 1fr 1fr / 1fr 1fr;
     gap: 100px;
 }
 
@@ -392,7 +392,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     gap: 3px;
-
+    max-width: 400px;
     text-align: center;
 }
 
@@ -583,7 +583,7 @@ footer>a {
 
     .team-elements {
 
-        grid-template: 1fr 1fr 1fr / 1fr 1fr;
+        grid-template: 1fr 1fr / 1fr 1fr;
         gap: 100px;
     }
 }
@@ -785,8 +785,12 @@ footer>a {
         height: 80px;
     }
 
+     .team-element{
+       justify-content: start;
+     }
+
     .team-element>h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .team-element>span {
