@@ -386,6 +386,12 @@ button:hover {
     gap: 100px;
 }
 
+/* .last-grid{
+    grid-column: 1 / 3; 
+  justify-self: center;    
+  width: fit-content;
+} */
+
 .team-element {
     display: flex;
     flex-direction: column;
