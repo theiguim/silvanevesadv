@@ -37,6 +37,8 @@ header {
     top: 0;
     width: 100%;
     height: 70px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
     padding: 5px 0;
     background-color: #eeece8;
     box-shadow: 5px 5px 10px #3b3b3b10;
@@ -92,6 +94,7 @@ a:hover {
 .main-logo {
     padding-top: 70px;
     flex: 1;
+    padding-left: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,9 +194,15 @@ span {
 }
 
 .atuacao {
-    padding: 10vh 0;
+    padding-bottom: 10vh;
+    padding-top: 10vh;
     max-width: 100vw;
     text-align: center;
+}
+
+.atuacao>span {
+    font-size: 20px;
+    font-weight: 500px;
 }
 
 .atuacao>h1 {
@@ -293,6 +302,7 @@ button:hover {
 
 .about {
     width: 100%;
+    border-radius: 15px;
     background-color: #0f1235;
     height: auto;
     display: flex;
@@ -322,8 +332,9 @@ button:hover {
 }
 
 .about-txt>p {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
+    text-align: center;
 }
 
 .values {
@@ -354,10 +365,14 @@ button:hover {
 .about-img {
     flex: 1;
     background-color: orange;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .about-img>img {
     height: 100%;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
     width: 100%;
     object-fit: cover;
     /* margin: auto; */
@@ -403,8 +418,8 @@ button:hover {
 }
 
 .team-element>img {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     margin-bottom: 10px;
 }
@@ -413,11 +428,12 @@ button:hover {
     /* color: #271b12; */
     color: #0f1235;
     font-family: "Cormorant SC", serif;
+    font: 24px;
 }
 
 .team-element>span {
     margin: 0;
-    font-size: 13px;
+    font-size: 15px;
     color: #464443;
 }
 
@@ -431,14 +447,18 @@ button:hover {
     background-color: rgb(27, 27, 27);
     color: #868686;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto;
-    gap: 40px;
-    text-align: left;
+    text-align: center;
+}
+
+.Local-title {
+    margin-top: 40px;
 }
 
 .contact>div {
     max-width: 300px;
+    margin: auto;
 }
 
 .contact>div a {
@@ -461,6 +481,7 @@ button:hover {
     padding: 10px;
 }
 
+
 .socials {
     display: flex;
     align-items: center;
@@ -482,10 +503,11 @@ button:hover {
     transform: scale(1.08);
 }
 
-.contact>img {
-    height: 120px;
+.contact > img { 
+    height: 180px;
+    align-self: center; /* Centralização Vertical */
+    justify-self: center; /* Centralização Horizontal */
 }
-
 
 footer {
     background-color: black;
@@ -500,6 +522,51 @@ footer>a {
     color: rgb(179, 179, 179);
     text-decoration: none;
 }
+
+.especialidades-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.tag-btn {
+    border: 1px solid #0f1235; /* Borda na cor principal (azul marinho) */
+    background: transparent;
+    padding: 10px 20px;
+    border-radius: 5px; /* Reduzindo o arredondamento */
+    font-size: 15px;
+    color: #0f1235;
+    transition: .3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.tag-btn:hover {
+    background-color: #0f1235; /* Fundo na cor principal */
+    color: #f8f8f8; /* Texto claro no hover */
+    cursor: pointer;
+}
+
+.value-element {
+    border: 1px solid #b9955a;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.selo-autoridade {
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.selo-autoridade span {
+    font-size: 25px;
+    font-weight: 600;
+    color: #0f1235;
+}
+
 
 
 
@@ -545,7 +612,7 @@ footer>a {
 
     .diference {
         width: 90vw;
-        gap: 25px;
+        gap: 40px;
         padding: 5vh 0;
     }
 
