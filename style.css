@@ -113,9 +113,9 @@ a:hover {
 }
 
 .main-logo button {
-    color: #464443;
-    font-size: 16px;
-    background-color: #b9955a;
+    color: #ffffff;
+    font-size: 25px;
+    background-color: #62d34b;
 }
 
 .statue {
@@ -285,8 +285,7 @@ span {
 }
 
 button {
-    border: 1px solid #b9955a;
-    background-color: transparent;
+    border: 1px solid #69d45a;
     border-radius: 5px;
     padding: 10px 20px;
     font-weight: bolder;
@@ -296,8 +295,8 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: transparent;
-    border: 1px solid #b9955a;
+    background-color: #328332;
+    border: 1px solid #328332;
 }
 
 .about {
