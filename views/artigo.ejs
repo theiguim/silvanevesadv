@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title><%= pageTitle %></title>
+    <meta name="description" content="<%= pageDesc %>">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="<%= pageTitle %>">
+    <meta property="og:description" content="<%= pageDesc %>">
+    <% if (post.image_url) { %>
+        <meta property="og:image" content="<%= post.image_url %>">
+    <% } %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;500;600&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/ico.png" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-gold': '#b8860b',
+                        'brand-dark': '#0f1235',
+                        'brand-black': '#1a1a1a',
+                        'bg-paper': '#f8f9fa',
+                        'header-bg': '#eeece8',
+                    },
+                    fontFamily: {
+                        'sans': ['Lato', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                        'cormorant': ['Cormorant SC', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #f8f9fa; }
+        
+        /* Estilização específica para o conteúdo injetado do post */
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Efeito de primeira letra grande (Dropcap) */
+        .dropcap::first-letter {
+            float: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 0.8;
+            font-weight: 700;
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            color: #b8860b; /* brand-gold */
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen text-stone-700 antialiased selection:bg-brand-gold selection:text-white">
+
+    <header class="fixed top-0 left-0 w-full z-50 bg-header-bg shadow-lg rounded-b-[20px] transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-[80px] flex items-center justify-between">
+            
+            <a href="/" class="flex-shrink-0 hover:opacity-80 transition-opacity">
+                <img class="h-12 w-auto object-contain" src="/images/claro.png" alt="Silva Neves Advogados">
+            </a>
+
+            <nav class="hidden md:block">
+                <ul class="flex items-center gap-8 font-cormorant text-xl font-medium text-brand-dark">
+                    <li><a href="/" class="hover:text-brand-gold hover:underline decoration-brand-gold underline-offset-4 transition-all">Início</a></li>
+                    <li><a href="/#atuacao" class="hover:text-brand-gold hover:underline decoration-brand-gold underline-offset-4 transition-all">Serviços</a></li>
+                    <li><a href="/#about" class="hover:text-brand-gold hover:underline decoration-brand-gold underline-offset-4 transition-all">Sobre</a></li>
+                    <li><a href="/#team" class="hover:text-brand-gold hover:underline decoration-brand-gold underline-offset-4 transition-all">Equipe</a></li>
+                    <li><a href="/#contact" class="hover:text-brand-gold hover:underline decoration-brand-gold underline-offset-4 transition-all">Contato</a></li>
+                </ul>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden text-brand-dark focus:outline-none p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-header-bg border-t border-stone-300 absolute w-full rounded-b-[20px] shadow-xl">
+            <ul class="flex flex-col p-6 gap-4 font-cormorant text-xl text-brand-dark text-center">
+                <li><a href="/" class="block py-2 hover:text-brand-gold">Início</a></li>
+                <li><a href="/#atuacao" class="block py-2 hover:text-brand-gold">Serviços</a></li>
+                <li><a href="/#about" class="block py-2 hover:text-brand-gold">Sobre</a></li>
+                <li><a href="/#team" class="block py-2 hover:text-brand-gold">Equipe</a></li>
+                <li><a href="/#contact" class="block py-2 hover:text-brand-gold">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="h-[100px]"></div>
+
+    <main class="flex-grow w-full max-w-3xl mx-auto px-6 py-12 animate-fade-in-up">
+        
+        <nav class="mb-8 text-sm uppercase tracking-widest text-stone-400 font-bold">
+            <a href="/" class="hover:text-brand-gold transition-colors">Home</a>
+            <span class="mx-2 text-stone-300">/</span>
+            <a href="/blog" class="hover:text-brand-gold transition-colors">Blog</a>
+            <span class="mx-2 text-stone-300">/</span>
+            <span class="text-brand-gold">Artigo</span>
+        </nav>
+
+        <article class="bg-white rounded-xl shadow-soft p-8 md:p-12 border border-stone-100">
+            
+            <header class="text-center mb-10">
+                <div class="inline-flex items-center gap-2 mb-6 text-xs font-bold uppercase tracking-widest text-brand-gold border-y border-stone-100 py-2 px-4">
+                    <span><%= new Date(post.created_at).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }) %></span>
+                    <span>•</span>
+                    <span>Silva Neves Advogados</span>
+                </div>
+
+                <h1 class="font-serif text-3xl md:text-5xl font-bold text-brand-dark leading-tight mb-8">
+                    <%= post.title %>
+                </h1>
+
+                <% if (post.image_url) { %>
+                    <div class="w-full rounded-lg overflow-hidden shadow-md mb-8">
+                        <img src="<%= post.image_url %>" alt="<%= post.title %>" class="w-full h-auto object-cover max-h-[500px]">
+                    </div>
+                <% } %>
+            </header>
+
+            <div class="article-body dropcap text-lg md:text-xl leading-relaxed text-stone-700 font-light text-justify md:text-left">
+                <% if (post.content) { %>
+                    <%- post.content.replace(/\n/g, '<p>') %>
+                <% } %>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-stone-200 text-center">
+                <p class="text-stone-400 italic text-sm mb-8">
+                    Este artigo tem caráter meramente informativo e não substitui a consulta jurídica especializada.
+                </p>
+
+                <a href="/blog" class="inline-flex items-center justify-center px-8 py-3 border border-brand-dark text-brand-dark font-bold uppercase tracking-widest text-sm hover:bg-brand-dark hover:text-white transition-all duration-300 rounded-sm">
+                    ← Voltar para o Blog
+                </a>
+            </div>
+
+        </article>
+
+    </main>
+
+    <footer class="bg-[#111] text-white py-16 px-6 mt-auto border-t border-stone-800">
+        <div class="max-w-4xl mx-auto text-center flex flex-col items-center">
+            
+            <img src="/images/claro.png" alt="Silva Neves" class="h-10 mb-8 opacity-80 filter grayscale brightness-200">
+            
+            <div class="flex flex-wrap justify-center gap-6 md:gap-8 mb-10 text-sm uppercase tracking-widest text-stone-400">
+                <a href="/" class="hover:text-white transition-colors">Início</a>
+                <a href="/#contact" class="hover:text-white transition-colors">Contato</a>
+                <a href="https://www.instagram.com/silvanevesadvogados/" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+            </div>
+
+            <div class="w-16 h-px bg-stone-800 mb-8"></div>
+
+            <p class="text-xs text-stone-600 mb-4">
+                © 2025 Silva Neves Advogados - Todos os direitos reservados.
+            </p>
+            <small class="text-stone-700 text-[10px]">
+                Desenvolvido por <a href="https://www.bitbloomai.com" target="_blank" class="hover:text-stone-500 transition-colors">BitBloom AI</a>
+            </small>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

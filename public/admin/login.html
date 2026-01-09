@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita | Silva Neves Advogados</title>
+    
+    <link rel="icon" href="../images/ico.png" type="image/x-icon" />
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            /* O SEGREDO DO DESIGN PREMIUM: */
+            /* A primeira parte (linear-gradient) cria uma película preta 60% transparente sobre a foto */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/fundo-login.jpg');
+            
+            /* Configurações para a imagem cobrir tudo perfeitamente */
+            background-size: cover;       /* Estica a imagem proporcionalmente para cobrir a tela */
+            background-position: center;  /* Centraliza o foco da imagem */
+            background-repeat: no-repeat; /* Não deixa a imagem repetir */
+            
+            /* Cor de fallback (caso a imagem não carregue) */
+            background-color: #1a1a1a; 
+
+            /* O restante do seu código original */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+            text-align: center;
+            margin: 20px;
+        }
+
+        .logo-area {
+            margin-bottom: 30px;
+        }
+
+        .logo-area img {
+            max-width: 180px; /* Ajuste conforme o tamanho da sua logo */
+            height: auto;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #b8860b; /* Cor Dourada da marca */
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #333; /* Botão escuro */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #000;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+        /* Mensagem de Erro (escondida por padrão) */
+        #error-msg {
+            color: #d9534f;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: none;
+            background: #ffe6e6;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="logo-area">
+            <img src="../images/new-logo.png" alt="Silva Neves Advogados">
+        </div>
+
+        <h2>Acesso Administrativo</h2>
+
+        <div id="error-msg">Usuário ou senha incorretos</div>
+
+        <div class="input-group">
+            <label for="user">Usuário</label>
+            <input type="text" id="user" placeholder="Digite seu usuário">
+        </div>
+
+        <div class="input-group">
+            <label for="pass">Senha</label>
+            <input type="password" id="pass" placeholder="Digite sua senha">
+        </div>
+
+        <button onclick="fazerLogin()">Entrar no Sistema</button>
+
+        <div class="copyright">
+            © 2025 Sistema Silva Neves
+        </div>
+    </div>
+
+    <script>
+        // Permite apertar ENTER para logar
+        document.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                fazerLogin();
+            }
+        });
+
+        async function fazerLogin() {
+            const username = document.getElementById('user').value;
+            const password = document.getElementById('pass').value;
+            const errorMsg = document.getElementById('error-msg');
+            const btn = document.querySelector('button');
+
+            // Feedback visual de carregamento
+            const originalBtnText = btn.innerText;
+            btn.innerText = "Verificando...";
+            btn.disabled = true;
+            errorMsg.style.display = 'none';
+
+            try {
+                // Tenta conectar no localhost (Se for subir pra nuvem, mude essa URL depois)
+                const res = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                    localStorage.setItem('userToken', data.token);
+                    // Redireciona para o admin.html
+                    window.location.href = 'index.html';
+                } else {
+                    errorMsg.style.display = 'block';
+                    errorMsg.innerText = "Usuário ou senha incorretos.";
+                }
+            } catch (error) {
+                console.error(error);
+                errorMsg.style.display = 'block';
+                errorMsg.innerText = "Erro ao conectar com o servidor.";
+            } finally {
+                // Restaura o botão
+                btn.innerText = originalBtnText;
+                btn.disabled = false;
+            }
+        }
+    </script>
+
+</body>
+</html>
